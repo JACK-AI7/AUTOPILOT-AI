@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="stylesheet" href="panel.css"/>
+</head>
+<body>
+  <div id="app">
+    <div id="header">
+      <div id="title">Autopilot‑AI</div>
+      <div id="controls">
+        <button id="theme-toggle" title="Toggle theme">🌓</button>
+        <button id="stop" title="Stop">⏹</button>
+      </div>
+    </div>
+
+    <div id="content">
+      <div id="left">
+        <div id="history"></div>
+        <div id="typing" class="hidden"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
+      <div id="right">
+        <div id="plan" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <textarea id="input" placeholder="Ask me to debug, click, or edit this page"></textarea>
+      <button id="send">Send</button>
+    </div>
+  </div>
+<script src="panel.js"></script>
+</body>
+</html>

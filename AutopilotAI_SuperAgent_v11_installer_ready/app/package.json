@@ -1,0 +1,40 @@
+{
+  "name": "autopilot-ai-desktop",
+  "version": "9.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^25.0.0",
+    "electron-builder": "^24.6.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2",
+    "dotenv": "^16.0.3",
+    "ws": "^8.13.0"
+  },
+  "build": {
+    "appId": "com.autopilotai.desktop",
+    "productName": "AutopilotAI SuperAgent",
+    "files": [
+      "app/**/*",
+      "server/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "app/icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

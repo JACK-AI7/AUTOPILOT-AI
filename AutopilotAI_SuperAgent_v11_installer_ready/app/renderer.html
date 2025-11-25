@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Autopilot-AI Desktop</title>
+<link rel="stylesheet" href="renderer.css"/></head><body>
+  <div id=" chrome-like-bar"><button id="open-dev">Dev</button><button id="open-ext">Open Agent</button></div>
+  <iframe id="agent-frame" src="ui/panel.html"></iframe>
+<script>
+document.getElementById('open-dev').addEventListener('click', ()=>{ window.open('http://localhost:5173','_blank'); });
+document.getElementById('open-ext').addEventListener('click', ()=>{
+  const f = document.getElementById('agent-frame');
+  f.style.display = f.style.display === 'block' ? 'none' : 'block';
+});
+</script>
+</body></html>

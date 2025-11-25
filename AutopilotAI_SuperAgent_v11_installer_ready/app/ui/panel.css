@@ -1,0 +1,22 @@
+:root{--accent:#7b61ff;--bg1:rgba(6,14,24,0.6);--glass:rgba(255,255,255,0.04);--text:#e8f0fb}
+*{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;color:var(--text)}
+body{margin:0;background:transparent}
+#app{width:100%;height:100%;display:flex;flex-direction:column;border-radius:12px;overflow:hidden;background:linear-gradient(180deg, rgba(3,8,16,0.7), rgba(6,16,28,0.6));backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.04)}
+header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:linear-gradient(90deg,var(--accent),#5bb1ff);font-weight:700}
+#main{display:flex;gap:12px;padding:12px;flex:1;overflow:hidden}
+#left{flex:1;display:flex;flex-direction:column;gap:8px;overflow:auto}
+#history{display:flex;flex-direction:column;gap:10px;padding-right:6px}
+.msg{padding:10px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.02)}
+.msg.user{align-self:flex-end;background:linear-gradient(90deg, rgba(123,97,255,0.18), rgba(91,177,255,0.08))}
+#typing{display:flex;gap:6px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(90deg,var(--accent),#5bb1ff);animation:dot 1s infinite}
+.dot:nth-child(2){animation-delay:.12s}
+.dot:nth-child(3){animation-delay:.24s}
+@keyframes dot{0%{transform:translateY(0);opacity:.6}50%{transform:translateY(-6px);opacity:1}100%{transform:translateY(0);opacity:.6}}
+#right{width:260px;border-left:1px solid rgba(255,255,255,0.03);padding-left:12px;overflow:auto}
+#planTitle{font-weight:700;margin-bottom:8px}
+.step{padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);margin-bottom:8px}
+footer{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,0.03)}
+#input{flex:1;height:64px;border-radius:10px;padding:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);outline:none;resize:none}
+#send{background:var(--accent);border:0;color:white;padding:12px 16px;border-radius:10px;cursor:pointer;font-weight:700}
+.light #app{background:rgba(255,255,255,0.9);color:#071022}

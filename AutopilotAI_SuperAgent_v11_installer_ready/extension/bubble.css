@@ -1,0 +1,32 @@
+:root{--accent1:#7b61ff;--accent2:#00d2ff}
+#ap-bubble{position:fixed;right:24px;bottom:24px;width:72px;height:72px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;z-index:2147483647;cursor:pointer;
+  transform-style:preserve-3d;backface-visibility:hidden;transition:transform .25s cubic-bezier(.2,.9,.2,1), box-shadow .25s, filter .25s;}
+#ap-orb{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--accent1),#5bb1ff);box-shadow:0 18px 60px rgba(123,97,255,0.22);
+  position:relative;overflow:hidden;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.08)}
+#ap-avatar{color:white;font-weight:700;font-size:22px;transform:translateZ(12px);transition:transform .3s}
+#ap-wave{position:absolute;inset:0;border-radius:50%;box-shadow:0 0 40px rgba(123,97,255,0.12);pointer-events:none}
+#ap-bubble.loading{animation:ap-spin 1.2s linear infinite}
+@keyframes ap-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+
+/* floating bob */
+@keyframes ap-float{0%{transform:translateY(0) rotateX(0)}50%{transform:translateY(-6px) rotateX(4deg)}100%{transform:translateY(0) rotateX(0)}}
+#ap-bubble{animation:ap-float 6s ease-in-out infinite}
+
+/* hover 3D tilt & neon trail */
+#ap-bubble.hovered{transform:translateY(-8px) rotateX(6deg) scale(1.02);filter:drop-shadow(0 20px 50px rgba(123,97,255,0.28));}
+#ap-bubble.hovered #ap-orb{box-shadow:0 30px 90px rgba(59,130,246,0.25)}
+#ap-bubble.active #ap-orb{transform:translateZ(8px) scale(1.02)}
+
+/* neon accent trailing effect */
+#ap-bubble::after{content:'';position:absolute;right:-8px;bottom:-8px;width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, rgba(123,97,255,0.28), rgba(0,210,255,0.08) 40%, transparent 60%);
+  filter:blur(20px);opacity:0;transition:opacity .28s}
+#ap-bubble.hovered::after{opacity:1}
+
+/* panel iframe */
+#ap-panel{position:fixed;right:24px;bottom:92px;width:460px;height:560px;border-radius:14px;overflow:hidden;z-index:2147483647;
+  box-shadow:0 30px 90px rgba(2,6,23,0.6);transform:translateY(12px) scale(.98) rotateX(6deg);transition:all .22s cubic-bezier(.2,.9,.2,1)}
+#ap-panel[style*="display: none"]{display:none}
+#ap-panel{border:1px solid rgba(255,255,255,0.06)}
